@@ -146,10 +146,8 @@ cython_debug/
 
 # Projects based file
 
-./tasks.txt
-./completed.txt
-
-
+tasks.txt
+completed.txt
 
 # PyCharm
 #  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
