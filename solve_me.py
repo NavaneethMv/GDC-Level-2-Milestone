@@ -72,15 +72,18 @@ $ python tasks.py report # Statistics"""
         self.change_priority((last_number - 1), priority)
 
     def add(self, args):
-        priority = int(args[0])
-        while priority in self.current_items.keys():
-            priority += 1
-        last_consecutive_number = priority - 1
-        if len(self.current_items) != 0:
-            self.change_priority(last_consecutive_number, int(args[0]))
-        self.current_items[int(args[0])] = args[1]
-        self.write_current()
-        print(f'Added task: "{args[1]}" with priority {args[0]}')
+        if len(args) == 2:
+            priority = int(args[0])
+            while priority in self.current_items.keys():
+                priority += 1
+            last_consecutive_number = priority - 1
+            if len(self.current_items) != 0:
+                self.change_priority(last_consecutive_number, int(args[0]))
+            self.current_items[int(args[0])] = args[1]
+            self.write_current()
+            print(f'Added task: "{args[1]}" with priority {args[0]}')
+        else:
+            print("Missing arguments see help")
 
     def done(self, args):
         priority = int(args[0])
